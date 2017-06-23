@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Repository\\UserGroupPromotion",
+    "to_class": "SV\\UserPromoOnUpdate\\XF\\Repository\\UserGroupPromotion",
+    "execute_order": 10,
+    "active": true
+}

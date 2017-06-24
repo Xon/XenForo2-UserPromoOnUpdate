@@ -1,4 +1,4 @@
-# XenForo-UserPromoOnUpdate
+# XenForo2-UserPromoOnUpdate
 
 Allows an Custom Fields to match an empty rule if selected.
 

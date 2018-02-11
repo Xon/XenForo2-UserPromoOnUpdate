@@ -1,6 +1,6 @@
 {
     "event_id": "entity_post_save",
-    "execute_order": 10,
+    "execute_order": 5846,
     "callback_class": "\\SV\\UserPromoOnUpdate\\Listener",
     "callback_method": "userEntityPostSave",
     "active": true,

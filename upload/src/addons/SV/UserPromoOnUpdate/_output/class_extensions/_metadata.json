@@ -1,5 +1,14 @@
 {
     "XF-Criteria-User_SV-UserPromoOnUpdate-XF-Criteria-User.json": {
         "hash": "d6dfe0b3a585591b3b46117b95f8b59c"
+    },
+    "XF-Repository-UserUpgrade_SV-UserPromoOnUpdate-XF-Repository-UserUpgrade.json": {
+        "hash": "7ad4e446222181f462d4fb34956bb437"
+    },
+    "XF-Service-User-Downgrade_SV-UserPromoOnUpdate-XF-Service-User-Downgrade.json": {
+        "hash": "39efa0e692c61864d9d70b6c3b2a3e4c"
+    },
+    "XF-Service-User-Upgrade_SV-UserPromoOnUpdate-XF-Service-User-Upgrade.json": {
+        "hash": "1940187b3c94ee05be978a1a5558b795"
     }
 }

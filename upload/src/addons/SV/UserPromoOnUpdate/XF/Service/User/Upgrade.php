@@ -12,9 +12,12 @@ class Upgrade extends XFCP_Upgrade
         $active = parent::upgrade();
         if ($active)
         {
-            /** @var \XF\Repository\UserGroupPromotion $usergroupRepo */
-            $usergroupRepo = \XF::repository('XF:UserGroupPromotion');
-            $usergroupRepo->updatePromotionsForUser($this->user);
+            $user = $this->user;
+            \XF::runOnce('profileUpdatePromotion.u' . $user->user_id, function () use ($user) {
+                /** @var \XF\Repository\UserGroupPromotion $usergroupRepo */
+                $usergroupRepo = \XF::repository('XF:UserGroupPromotion');
+                $usergroupRepo->updatePromotionsForUser($user);
+            });
         }
 
         return $active;

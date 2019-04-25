@@ -14,9 +14,12 @@ class Downgrade extends XFCP_Downgrade
         $active = parent::downgrade();
         if ($active)
         {
-            /** @var \XF\Repository\UserGroupPromotion $usergroupRepo */
-            $usergroupRepo = \XF::repository('XF:UserGroupPromotion');
-            $usergroupRepo->updatePromotionsForUser($this->user);
+            $user = $this->user;
+            \XF::runOnce('profileUpdatePromotion.u' . $user->user_id, function () use ($user) {
+                /** @var \XF\Repository\UserGroupPromotion $usergroupRepo */
+                $usergroupRepo = \XF::repository('XF:UserGroupPromotion');
+                $usergroupRepo->updatePromotionsForUser($user);
+            });
         }
 
         return $active;

@@ -16,9 +16,11 @@ class UserUpgrade extends XFCP_UserUpgrade
         $user = $expired->User;
         if ($user)
         {
-            /** @var \XF\Repository\UserGroupPromotion $usergroupRepo */
-            $usergroupRepo = \XF::repository('XF:UserGroupPromotion');
-            $usergroupRepo->updatePromotionsForUser($user);
+            \XF::runOnce('profileUpdatePromotion.u' . $user->user_id, function () use ($user) {
+                /** @var \XF\Repository\UserGroupPromotion $usergroupRepo */
+                $usergroupRepo = \XF::repository('XF:UserGroupPromotion');
+                $usergroupRepo->updatePromotionsForUser($user);
+            });
         }
     }
 }

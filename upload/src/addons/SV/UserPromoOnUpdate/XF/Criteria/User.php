@@ -22,7 +22,7 @@ class User extends XFCP_User
 
             $value = $cFS->{$fieldId};
 
-            if (empty($value) && empty($data['text']))
+            if ($value === '' && isset($data['text']) && $data['text'] === '')
             {
                 return true;
             }

@@ -1,6 +1,6 @@
 {
     "from_class": "XF\\Service\\User\\Downgrade",
     "to_class": "SV\\UserPromoOnUpdate\\XF\\Service\\User\\Downgrade",
-    "execute_order": 10,
+    "execute_order": 5846,
     "active": true
 }

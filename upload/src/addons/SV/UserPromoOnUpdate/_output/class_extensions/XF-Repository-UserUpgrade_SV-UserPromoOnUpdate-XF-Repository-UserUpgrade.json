@@ -1,6 +1,6 @@
 {
     "from_class": "XF\\Repository\\UserUpgrade",
     "to_class": "SV\\UserPromoOnUpdate\\XF\\Repository\\UserUpgrade",
-    "execute_order": 10,
+    "execute_order": 5846,
     "active": true
 }

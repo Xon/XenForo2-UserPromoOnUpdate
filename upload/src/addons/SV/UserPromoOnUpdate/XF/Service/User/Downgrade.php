@@ -2,8 +2,6 @@
 
 namespace SV\UserPromoOnUpdate\XF\Service\User;
 
-
-
 /**
  * Extends \XF\Service\User\Downgrade
  */

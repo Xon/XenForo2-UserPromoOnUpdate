@@ -14,6 +14,11 @@ class Upgrade extends XFCP_Upgrade
         {
             $user = $this->user;
             \XF::runOnce('profileUpdatePromotion.u' . $user->user_id, function () use ($user) {
+                if (!$user->exists())
+                {
+                    return;
+                }
+
                 /** @var \XF\Repository\UserGroupPromotion $usergroupRepo */
                 $usergroupRepo = \XF::repository('XF:UserGroupPromotion');
                 $usergroupRepo->updatePromotionsForUser($user);

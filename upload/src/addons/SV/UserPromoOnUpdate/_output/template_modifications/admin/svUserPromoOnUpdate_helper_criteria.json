@@ -1,0 +1,9 @@
+{
+    "template": "helper_criteria",
+    "description": "Add explicit 'Match none\" option for custom fields",
+    "execution_order": 5846,
+    "enabled": true,
+    "action": "preg_replace",
+    "find": "#<xf:set var=\"\\$customFields\".*?<xf:option name=\"user_criteria\\[\\{\\$fieldName\\}\\]\\[rule\\].*?<xf:dependent>#si",
+    "replace": "$0\n<xf:checkbox standalone=\"true\" listclass=\"listColumns\">\n\t<xf:option name=\"user_criteria[{$fieldName}][data][matchNone]\" value=\"1\" selected=\"{$criteria.{$fieldName}.matchNone}\" label=\"{{ phrase('(svUserPromo_match_none)') }}\" />\n</xf:checkbox>"
+}

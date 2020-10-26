@@ -8,8 +8,15 @@ namespace SV\UserPromoOnUpdate\XF\Criteria
 	class XFCP_User extends \XF\Criteria\User {}
 }
 
+namespace SV\UserPromoOnUpdate\XF\Entity
+{
+	class XFCP_User extends \XF\Entity\User {}
+	class XFCP_UserConnectedAccount extends \XF\Entity\UserConnectedAccount {}
+}
+
 namespace SV\UserPromoOnUpdate\XF\Repository
 {
+	class XFCP_ConnectedAccount extends \XF\Repository\ConnectedAccount {}
 	class XFCP_UserUpgrade extends \XF\Repository\UserUpgrade {}
 }
 

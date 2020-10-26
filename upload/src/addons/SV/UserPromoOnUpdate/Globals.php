@@ -5,7 +5,7 @@ namespace SV\UserPromoOnUpdate;
 
 class Globals
 {
-    public static function queueUserPromotion(\XF\Entity\User $user = null)
+    public static function queueUserPromotion(\XF\Entity\User $user = null, \Closure $callback = null)
     {
         if (!$user)
         {
@@ -19,15 +19,20 @@ class Globals
 
         // This will queue a task to run at the end of the request. If this is called more than once,
         // it will replace the previous one, ensuring the update only runs once per request.x
-        \XF::runOnce('profileUpdatePromotion.u' . $userId, function () use ($user) {
+        \XF::runOnce('profileUpdatePromotion.u' . $userId, function () use ($user, $callback) {
             if (!$user->exists())
             {
                 return;
             }
 
-            /** @var \XF\Repository\UserGroupPromotion $usergroupRepo */
-            $usergroupRepo = \XF::repository('XF:UserGroupPromotion');
-            $usergroupRepo->updatePromotionsForUser($user);
+            if ($callback)
+            {
+                $callback();
+            }
+
+            /** @var \XF\Repository\UserGroupPromotion $userGroupRepo */
+            $userGroupRepo = \XF::repository('XF:UserGroupPromotion');
+            $userGroupRepo->updatePromotionsForUser($user);
         });
     }
 

@@ -1,0 +1,6 @@
+{
+    "from_class": "XF\\Entity\\UserConnectedAccount",
+    "to_class": "SV\\UserPromoOnUpdate\\XF\\Entity\\UserConnectedAccount",
+    "execute_order": 5846,
+    "active": true
+}

@@ -2,6 +2,7 @@
 
 namespace SV\UserPromoOnUpdate\XF\Repository;
 
+use SV\UserPromoOnUpdate\Globals;
 use XF\Entity\UserUpgradeActive;
 use XF\Entity\UserUpgradeExpired;
 
@@ -13,19 +14,9 @@ class UserUpgrade extends XFCP_UserUpgrade
     public function expireActiveUpgrade(UserUpgradeActive $active, UserUpgradeExpired $expired = null)
     {
         parent::expireActiveUpgrade($active, $expired);
-        $user = $expired->User;
-        if ($user)
+        if ($expired)
         {
-            \XF::runOnce('profileUpdatePromotion.u' . $user->user_id, function () use ($user) {
-                if (!$user->exists())
-                {
-                    return;
-                }
-
-                /** @var \XF\Repository\UserGroupPromotion $usergroupRepo */
-                $usergroupRepo = \XF::repository('XF:UserGroupPromotion');
-                $usergroupRepo->updatePromotionsForUser($user);
-            });
+            Globals::queueUserPromotion($expired->User);
         }
     }
 }

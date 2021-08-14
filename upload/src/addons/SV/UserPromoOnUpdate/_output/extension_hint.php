@@ -16,7 +16,6 @@ namespace SV\UserPromoOnUpdate\XF\Entity
 
 namespace SV\UserPromoOnUpdate\XF\Repository
 {
-	class XFCP_ConnectedAccount extends \XF\Repository\ConnectedAccount {}
 	class XFCP_UserUpgrade extends \XF\Repository\UserUpgrade {}
 }
 

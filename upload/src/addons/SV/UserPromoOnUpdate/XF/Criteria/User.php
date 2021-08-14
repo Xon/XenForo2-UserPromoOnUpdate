@@ -8,7 +8,7 @@ class User extends XFCP_User
     {
         $result = parent::isSpecialMatched($rule, $data, $user);
 
-        if (!empty($data['matchNone']) && preg_match('/^user_field_(.+)$/', $rule, $matches))
+        if (!empty($data['matchNone']) && \preg_match('/^user_field_(.+)$/', $rule, $matches))
         {
             /** @var \XF\CustomField\Set $cFS */
             $cFS = $user->user_id ? $user->Profile->custom_fields : null;
@@ -21,7 +21,7 @@ class User extends XFCP_User
 
             $value = $cFS->offsetExists($fieldId) ? $cFS->offsetGet($fieldId) : '';
 
-            return $value === '';
+            return $value === '' || $value === [];
         }
 
         return $result;

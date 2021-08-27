@@ -11,10 +11,11 @@ class User extends XFCP_User
         if (!empty($data['matchNone']) && \preg_match('/^user_field_(.+)$/', $rule, $matches))
         {
             /** @var \XF\CustomField\Set $cFS */
-            $cFS = $user->user_id ? $user->Profile->custom_fields : null;
+            $cFS = $user->Profile ? $user->Profile->custom_fields : null;
             if (!$cFS)
             {
-                return false;
+                // no profile/custom fields (ie guest user) means the none clause matches
+                return true;
             }
 
             $fieldId = $matches[1];

@@ -9,7 +9,7 @@ use XF\Repository\UserGroupPromotion as UserGroupPromotionRepo;
 
 abstract class Globals
 {
-    public static function queueUserPromotion(UserEntity $user = null, \Closure $callback = null)
+    public static function queueUserPromotion(?UserEntity $user = null, ?\Closure $callback = null)
     {
         if ($user === null)
         {

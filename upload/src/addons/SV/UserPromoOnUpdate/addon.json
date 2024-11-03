@@ -2,9 +2,9 @@
     "legacy_addon_id": "SV_UserPromoOnUpdate",
     "title": "Usergroup Promotion on Profile Change",
     "description": "",
-    "version_id": 2040200,
-    "version_string": "2.4.2",
-    "dev" : "Xon",
+    "version_id": 1730622942,
+    "version_string": "2.5.0",
+    "dev": "Xon",
     "dev_url": "https://atelieraphelion.com/",
     "faq_url": "",
     "support_url": "https://xenforo.com/community/resources/user-promotion-on-profile-update.5846/",
@@ -12,13 +12,19 @@
         "License": "https://atelieraphelion.com/products/user-promotion-on-profile-update.242/copyright",
         "Add-on site": "https://atelieraphelion.com/products/user-promotion-on-profile-update.242/"
     },
-    "require" : {
+    "require": {
         "SV/StandardLib": [
             2001210000,
             "Standard Library by Xon v1.21.0+"
         ],
-        "XF": [2010070, "XenForo 2.1.0+"],
-        "php": ["7.2.0", "PHP 7.2.0+"]
+        "XF": [
+            "2.1.0",
+            "XenForo 2.1.0+"
+        ],
+        "php": [
+            "7.2.0",
+            "PHP 7.2.0+"
+        ]
     },
     "icon": ""
 }

@@ -3,16 +3,20 @@
 namespace SV\UserPromoOnUpdate;
 
 
-class Globals
+use SV\StandardLib\Helper;
+use XF\Entity\User as UserEntity;
+use XF\Repository\UserGroupPromotion as UserGroupPromotionRepo;
+
+abstract class Globals
 {
-    public static function queueUserPromotion(\XF\Entity\User $user = null, \Closure $callback = null)
+    public static function queueUserPromotion(UserEntity $user = null, \Closure $callback = null)
     {
-        if (!$user)
+        if ($user === null)
         {
             return;
         }
-        $userId = $user->user_id;
-        if (!$userId)
+        $userId = (int)$user->user_id;
+        if ($userId === 0)
         {
             return;
         }
@@ -30,8 +34,7 @@ class Globals
                 $callback();
             }
 
-            /** @var \XF\Repository\UserGroupPromotion $userGroupRepo */
-            $userGroupRepo = \XF::repository('XF:UserGroupPromotion');
+            $userGroupRepo = Helper::repository(UserGroupPromotionRepo::class);
             $userGroupRepo->updatePromotionsForUser($user);
         });
     }

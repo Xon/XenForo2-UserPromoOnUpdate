@@ -5,7 +5,7 @@ namespace SV\UserPromoOnUpdate\XF\Service\User;
 use SV\UserPromoOnUpdate\Globals;
 
 /**
- * Extends \XF\Service\User\Downgrade
+ * @extends \XF\Service\User\Downgrade
  */
 class Downgrade extends XFCP_Downgrade
 {

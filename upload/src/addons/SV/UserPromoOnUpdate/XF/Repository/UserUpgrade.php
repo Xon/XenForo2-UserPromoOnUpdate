@@ -7,7 +7,7 @@ use XF\Entity\UserUpgradeActive;
 use XF\Entity\UserUpgradeExpired;
 
 /**
- * Extends \XF\Repository\UserUpgrade
+ * @extends \XF\Repository\UserUpgrade
  */
 class UserUpgrade extends XFCP_UserUpgrade
 {

@@ -2,15 +2,22 @@
 
 namespace SV\UserPromoOnUpdate\XF\Criteria;
 
+use XF\CustomField\Set;
+use function preg_match;
+
+/**
+ * @extends \XF\Criteria\User
+ */
 class User extends XFCP_User
 {
+    /** @noinspection PhpMissingReturnTypeInspection */
     protected function isSpecialMatched($rule, array $data, \XF\Entity\User $user)
     {
         $result = parent::isSpecialMatched($rule, $data, $user);
 
-        if (!empty($data['matchNone']) && \preg_match('/^user_field_(.+)$/', $rule, $matches))
+        if (!empty($data['matchNone']) && preg_match('/^user_field_(.+)$/', $rule, $matches))
         {
-            /** @var \XF\CustomField\Set $cFS */
+            /** @var Set $cFS */
             $cFS = $user->Profile ? $user->Profile->custom_fields : null;
             if (!$cFS)
             {

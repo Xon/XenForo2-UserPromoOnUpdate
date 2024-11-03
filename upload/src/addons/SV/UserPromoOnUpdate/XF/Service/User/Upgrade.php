@@ -5,7 +5,7 @@ namespace SV\UserPromoOnUpdate\XF\Service\User;
 use SV\UserPromoOnUpdate\Globals;
 
 /**
- * Extends \XF\Service\User\Upgrade
+ * @extends \XF\Service\User\Upgrade
  */
 class Upgrade extends XFCP_Upgrade
 {

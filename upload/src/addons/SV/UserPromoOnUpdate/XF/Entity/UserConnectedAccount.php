@@ -4,6 +4,9 @@ namespace SV\UserPromoOnUpdate\XF\Entity;
 
 use SV\UserPromoOnUpdate\Globals;
 
+/**
+ * @extends \XF\Entity\UserConnectedAccount
+ */
 class UserConnectedAccount extends XFCP_UserConnectedAccount
 {
     protected function _postSave()

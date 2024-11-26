@@ -11,10 +11,10 @@ use XF\Entity\UserUpgradeExpired;
  */
 class UserUpgrade extends XFCP_UserUpgrade
 {
-    public function expireActiveUpgrade(UserUpgradeActive $active, UserUpgradeExpired $expired = null)
+    public function expireActiveUpgrade(UserUpgradeActive $active, ?UserUpgradeExpired $expired = null)
     {
         parent::expireActiveUpgrade($active, $expired);
-        if ($expired)
+        if ($expired !== null)
         {
             Globals::queueUserPromotion($expired->User);
         }
